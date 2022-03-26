@@ -42,11 +42,7 @@ AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "https://flightpass101.herokuapp.com",
-    "http://flightpass101.herokuapp.com",
-    "http://127.0.0.1:8000",
-]
+CORS_ORIGIN_ALLOW_ANY = True
 
 CORS_ALLOW_METHODS = [
     "DELETE",
@@ -70,8 +66,8 @@ CORS_ALLOW_HEADERS = [
 ]
 
 MIDDLEWARE = [
-    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
