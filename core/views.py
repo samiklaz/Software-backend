@@ -9,12 +9,8 @@ from rest_framework.response import Response
 from rest_framework import status
 
 
-class DictionaryAPIView(APIView):
+class CovidAPIView(APIView):
     def get(self, request, slug):
-        # url = 'https://api.dictionaryapi.dev/api/v2/entries/en/hello'
-        # url = 'https://coronavirus.m.pipedream.net/'
-        # url = 'https://dog.ceo/api/breeds/list/all'
-        # url = 'https://ulvis.net/api.php?url=www.asuquo.com/'
 
         try:
             query = Cases.objects.get(country=slug)
