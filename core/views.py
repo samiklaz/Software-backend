@@ -15,7 +15,10 @@ class CovidAPIView(APIView):
         try:
             query = Cases.objects.get(country=slug)
             serializer = CasesSerializer(query)
-            return Response(data=serializer.data)
+            data = serializer.data
+            data["status"] = "successful"
+            data["message"] = "case_created_successfully"
+            return Response(data, status=status.HTTP_201_CREATED)
 
         except ObjectDoesNotExist:
             url = 'https://covid-api.mmediagroup.fr/v1/cases?country=' + slug
