@@ -11,7 +11,7 @@ SECRET_KEY = 'django-insecure-rt@e)d7ecwkoy&$s23ab_g%ywi9^qckc7@o!1zk9a+6_0)paq7
 DEBUG = True
 
 ALLOWED_HOSTS = ['covid-software.herokuapp.com', '*']
-
+CORS_ORIGIN_ALLOW_ANY = False
 
 # Application definition
 
@@ -42,7 +42,7 @@ AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
 ]
 
-CORS_ORIGIN_ALLOW_ANY = True
+
 
 CORS_ALLOW_METHODS = [
     "DELETE",
@@ -53,21 +53,16 @@ CORS_ALLOW_METHODS = [
     "PUT",
 ]
 
-CORS_ALLOW_HEADERS = [
-    "accept",
-    "accept-encoding",
-    "authorization",
-    "content-type",
-    "dnt",
-    "origin",
-    "user-agent",
-    "x-csrftoken",
-    "x-requested-with",
+
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
+    'https://covid-software.herokuapp.com',
+    'http://covid-software.herokuapp.com'
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
     "corsheaders.middleware.CorsMiddleware",
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
