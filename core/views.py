@@ -18,7 +18,7 @@ class CovidAPIView(APIView):
             data = serializer.data
             data["status"] = "successful"
             data["message"] = "case_created_successfully"
-            return Response(data, status=status.HTTP_201_CREATED)
+            return Response(data, status=status.HTTP_200_OK)
 
         except ObjectDoesNotExist:
             url = 'https://covid-api.mmediagroup.fr/v1/cases?country=' + slug
@@ -41,7 +41,7 @@ class CovidAPIView(APIView):
                         data = serializer.data
                         data["status"] = "successful"
                         data["message"] = "case_created_successfully"
-                        return Response(data, status=status.HTTP_201_CREATED)
+                        return Response(data, status=status.HTTP_200_OK)
 
                     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
