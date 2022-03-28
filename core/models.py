@@ -9,7 +9,7 @@ class Cases(models.Model):
     population = models.IntegerField(blank=True, null=True)
     sq_km_area = models.IntegerField(blank=True, null=True)
     life_expectancy = models.CharField(max_length=255, blank=True, null=True)
-    elevation_in_meters = models.IntegerField(blank=True, null=True)
+    elevation_in_meters = models.CharField(max_length=255, blank=True, null=True)
     continent = models.CharField(max_length=255, blank=True, null=True)
     abbreviation = models.CharField(max_length=25, blank=True, null=True)
     location = models.CharField(max_length=255, blank=True, null=True)

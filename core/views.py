@@ -13,6 +13,8 @@ class CovidAPIView(APIView):
     def get(self, request, slug):
 
         try:
+            slug = str.title(slug)
+            print(slug)
             query = Cases.objects.get(country=slug)
             serializer = CasesSerializer(query)
             data = serializer.data
